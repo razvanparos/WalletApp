@@ -1,38 +1,189 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color:white;
+  letter-spacing: 2px;
+}
+.hidden{
+  width: 0px;
+  display: none;
+  visibility:hidden;
+  position: absolute;
+  transition: none !important; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  width: fit-content;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(89,57,89,1) 13%, rgba(91,78,119,1) 100%);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  column-gap: 40px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.accounts-div{
+  background-color: rgba(0, 0, 0, 0.468);
+  box-shadow: 20px 20px 29px 0px rgba(0,0,0,0.55);
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 20px;
+  padding: 20px 60px;
+  min-height: 75%;
+  width: fit-content;
+  height: fit-content;
+}
+.accounts-details{
+  background-color: rgba(0, 0, 0, 0.468);
+  border-radius: 20px;
+  padding: 20px 40px;
+  min-height: 75%;
+  height: fit-content;
+  width: 60%;
+  box-shadow: 20px 20px 29px 0px rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 8px;
+}
+.accounts-list{
+  margin: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  row-gap: 28px;
+  width: 290px;
+  height: 470px;
+  padding: 8px 0px;
+  overflow-y:scroll;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+.account-details-buttons{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.delete-btn{
+  font-size: 16px;
+  outline: 0px;
+  background-color: red;
+  border: 0px;
+  padding: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  gap: 10px;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.add-record-btn{
+  outline: 0px;
+  font-size: 16px;
+  background-color: rgba(152,193,217,1);
+  border: 0px;
+  padding: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn:hover{
+  scale: 1.1;
+}
+.add-record-btn:hover{
+  scale: 1.1;
+}
+.total-balance-text{
+  color: rgba(152,193,217,1);
+  margin-top: 4px;
+}
+.transactions-tab{
+  /* border: 1px solid red; */
+  height:490px;
+  width: 100%;
+}
+.accounts-details-top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4px;
+}
+.total-worth-div{
+  max-width: fit-content;
+  display: flex;
+  width: 100%;
+}
+.total-worth-button{
+  text-decoration: underline;
+  cursor: pointer;
+  color: gray;
+  letter-spacing: 1px;
+  word-spacing: -2px;
+  font-size: 16px;
+  
 }
 
-.App-link {
-  color: #61dafb;
-}
+@media (max-width:1024px) {
+  .app-div{
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: fit-content;
+    row-gap: 40px;
+    
+  }
+  .accounts-div{
+    width: 100%;
+    /* margin: 40px 0px; */
+    
+  }
+  .accounts-list{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .accounts-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 800px;
+  
+  }
+  .delete-btn-text{
+    display: none;
+  }
+  .delete-btn{
+    border-radius: 50%;
+  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

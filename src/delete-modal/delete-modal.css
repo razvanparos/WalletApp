@@ -1,0 +1,82 @@
+.delete-modal-div{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    min-height:100vh;
+    width: 100vw;
+    backdrop-filter: blur(10px);
+}
+.delete-dialog{
+    width: 90%;
+    max-width: 500px;
+    height: 260px;
+    border-radius: 20px;
+    padding: 40px;
+    background: linear-gradient(180deg, rgba(89,57,89,0.6) 13%, rgba(91,78,119,0.6) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    flex-direction: column;
+    box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.45);
+    transition: 0.4s;
+}
+.delete-dialog-down{
+    position: absolute;
+    top: 30%;
+}
+.delete-dialog-up{
+    position: absolute;
+    top:-500px; 
+}
+.delete-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+    width: 80%;
+    height: fit-content; 
+}
+.delete-name{
+    text-align:center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: fit-content;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    max-height: 3em; 
+    white-space: nowrap; 
+    font-weight: 800;  
+    
+}
+.delete-buttons-div button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    border-radius: 10px;
+    padding: 12px;
+    width: 80px;
+    font-size: 16px;
+    color: black;
+    transition: 0.2s;
+    column-gap: 8px;
+    font-weight: 500;
+}
+.delete-buttons-div button:hover{
+   scale: 1.1;
+}
+.delete-buttons-div{
+    display: flex;
+    gap: 40px;
+}
+.inverted{
+    filter: invert(1);
+}
+.check-logo{
+    scale: 2.2;
+}

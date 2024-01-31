@@ -1,0 +1,30 @@
+.plus-div{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+.plus-div:hover{
+    scale: 1.1;
+}
+.plus-sign{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: invert(1);
+    font-size: 26px;
+    
+}
+.max-text{
+    max-width: 200px;
+    text-align: center;
+    font-size: 12px;
+}
+.accounts-bottom-div{
+    
+}

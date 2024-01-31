@@ -1,0 +1,63 @@
+.net-worth-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}.currencies-list{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    row-gap: 8px;
+    padding: 0px 60px;
+}
+.fi{
+    height: 28px !important;
+    width: 28px !important;
+    border-radius: 8px !important;
+}
+.flex{
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 8px;
+}
+.net-total{
+    font-size: 24px;
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    white-space: normal; 
+    max-width: 290px;
+    text-align: center;
+    text-overflow: ellipsis;
+    line-height: 35px;
+}
+.currencies-individual{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    row-gap: 4px;
+    
+}
+select{
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 0px;
+    outline: none;
+    -webkit-appearance:button !important;
+    -moz-appearance:button !important;
+    appearance:button !important;
+    cursor: pointer;
+}
+select *{
+    color: black;
+    cursor: pointer;
+}
