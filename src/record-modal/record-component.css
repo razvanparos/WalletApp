@@ -1,0 +1,17 @@
+.record-component-div{
+    border: 1px solid red;
+    padding: 12px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.record-remove-btn{
+    color: gray;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0px;
+}
+.record-remove-btn:hover{
+    text-decoration: underline;
+    
+}

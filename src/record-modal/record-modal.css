@@ -1,0 +1,121 @@
+.record-modal-div{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    min-height:100vh;
+    width: 100vw;
+    backdrop-filter: blur(10px);
+}
+.record-dialog{
+    width: 90%;
+    max-width: 500px;
+    min-height: 220px;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 40px;
+    background: linear-gradient(180deg, rgba(89,57,89,0.6) 13%, rgba(91,78,119,0.6) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+    flex-direction: column;
+    box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.35);
+    transition: 0.4s;
+}
+.record-dialog-down{
+    position: absolute;
+    top: 20%;
+}
+.record-dialog-up{
+    position: absolute;
+    top:-500px; 
+}
+.record-title{
+    font-size: 24px;
+    text-align: center;
+    max-width: 60%;
+}
+.record-inputs-div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+.record-inputs-div input{
+   color: black;
+   padding: 5px 10px;
+   border-radius: 10px;
+   font-size: 16px;
+   border: 0px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+select{
+    color: black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 0px;
+    outline: none;
+    -webkit-appearance:button !important;
+    -moz-appearance:button !important;
+    appearance:button !important;
+    cursor: pointer;
+}
+select *{
+    color: black;
+    cursor: pointer;
+}
+.record-buttons-div button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    border-radius: 10px;
+    padding: 12px;
+    width: 80px;
+    font-size: 16px;
+    color: black;
+    transition: 0.2s;
+    column-gap: 8px;
+    font-weight: 500;
+}
+.record-buttons-div button:hover{
+   scale: 1.1;
+}
+.record-buttons-div{
+    display: flex;
+    gap: 40px;
+}
+.type-buttons{
+    display: flex;
+    width: 100%;
+    column-gap: 24px;
+    
+}
+
+.type-buttons button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px;
+    border-radius: 10px;
+    padding: 12px 20px;
+    width: 50%;
+    font-size: 16px;
+    color: gray;
+    transition: 0.2s;
+    column-gap: 8px;
+    font-weight: 500;
+    background-color: transparent;
+}
+.active{
+    background-color: white !important;
+    color: black !important;
+    padding: 12px 20px !important;
+}

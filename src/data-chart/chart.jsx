@@ -8,9 +8,9 @@ function Chart(props) {
   const [chartData, setChartData] = useState([]);
   useEffect(()=>{
     if(localStorage.getItem('chartData')){
-    console.log('data exists')
+    // console.log('data exists')
   }else {
-    console.log('no data stored...initializing')
+    // console.log('no data stored...initializing')
     setDefaultData();
   }
   },[])
@@ -64,7 +64,7 @@ function Chart(props) {
 
   let timeDifference=currentDate.getTime()-formattedDate.getTime();
   let daysDifference = parseInt(timeDifference / (1000 * 60 * 60 * 24));
-  console.log(daysDifference);
+  // console.log(daysDifference);
 
   if(daysDifference>0){
     let oneDayInMilliseconds = 24 * 60 * 60 * 1000;

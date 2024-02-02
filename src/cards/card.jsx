@@ -23,7 +23,7 @@ function Card(props) {
       })
     : "";
     function cardClick(){
-      props.propchangeAccount(props.name,formattedBalance,props.cardKey)
+      props.propchangeAccount(props.name,formattedBalance,props.cardKey,cardSymbol)
     }
 
   return (

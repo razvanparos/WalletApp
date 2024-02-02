@@ -29,8 +29,8 @@ function handleYesButton(){
        <div className={`delete-dialog ${ isOpen ? 'delete-dialog-down' : 'delete-dialog-up'}`}>
             <p className='delete-title'>Are you sure you want to delete Account <span className='delete-name'>{props.deleteName}?</span></p>
             <div className='delete-buttons-div'>
-                <button onClick={closeDeleteModal}><IoMdClose className='inverted'/>NO</button>
-                <button onClick={handleYesButton}><IoIosCheckmark className='inverted check-logo'/>YES</button>
+                <button onClick={closeDeleteModal}><IoMdClose className='inverted'/>No</button>
+                <button onClick={handleYesButton}><IoIosCheckmark className='inverted check-logo'/>Yes</button>
             </div>
         </div>
     </div>

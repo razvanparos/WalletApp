@@ -8,10 +8,8 @@ import { FaTrash } from "react-icons/fa6";
 import DeleteModal from './delete-modal/delete-modal';
 import CreateModal from './create-modal/create-modal';
 import NetWorth from './net-worth/net-worth';
-
-
-
-
+import RecordModal from './record-modal/record-modal';
+import RecordComponent from './record-modal/record-component';
 
 function App() {
   let currency = "RON"
@@ -22,10 +20,13 @@ function App() {
   const [totalBalanceEURO, setTotalBalanceEURO] = useState()
   const [totalBalanceUSD, setTotalBalanceUSD] = useState()
   const [totalBalanceYEN, setTotalBalanceYEN] = useState()
-  const [selectedCardId, setSelectedCardId] = useState()
+  const [selectedCardId, setSelectedCardId] = useState(1)
   const [showDelete, setShowDelete] = useState(false)
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
   const [createModalStatus, setCreateModalStatus] = useState(false)
+  const [recordModalStatus, setRecordModalStatus] = useState(false)
+  const [recordSymbol, setRecordSymbol] = useState()
+  const [recordData, setRecordData] = useState('');
   const [cardsData, setCardsData] = useState(() => {
     const storedData = localStorage.getItem('cardsData');
     return storedData ? JSON.parse(storedData) : CARDS_DATA;
@@ -33,6 +34,7 @@ function App() {
   const [accountsNumber, setAccountsNumber] = useState(() => {
     return cardsData.length
   });
+
 
   useEffect(() => {
     localStorage.setItem('cardsData', JSON.stringify(cardsData));
@@ -72,11 +74,15 @@ function App() {
   function closeCreateModalFunction(){
     setCreateModalStatus(false)
   }
+  function closeRecordModalFunction(){
+    setRecordModalStatus(false)
+  }
 
-  function changeAccount(acc,bal,id){
+  function changeAccount(acc,bal,id,s){
     setAccountName(acc)
     setAccountBalance(bal)
     setSelectedCardId(id)
+    setRecordSymbol(s)
   }
   function openDeleteModalAction(){
     document.body.scrollTop = 0;  // needs fix
@@ -86,6 +92,10 @@ function App() {
   function openCreateModal(){
     window.scrollTo({top: 0, behavior: 'smooth'}) // needs fix
     setCreateModalStatus(true);
+  }
+  function openRecordModal(){
+    window.scrollTo({top: 0, behavior: 'smooth'}) // needs fix
+    setRecordModalStatus(true);
   }
   function showTotalWorth(){
     setAccountName('Select account')
@@ -99,8 +109,9 @@ function App() {
     const newCard = {
       id: newId,
       title: name,
-      balance: balance,
-      currency: curren
+      balance: parseInt(balance),
+      currency: curren,
+      records:[]
     };
     setCardsData(prevCardsData => [...prevCardsData, newCard]);
   }
@@ -111,6 +122,9 @@ function App() {
       if (indexToRemove !== -1) {
         const updatedCards = [...prevCardsData];
         updatedCards.splice(indexToRemove, 1);
+        updatedCards.forEach((item, index) => {
+          item.id = index + 1;
+        });
         return updatedCards;
       }
       
@@ -121,6 +135,29 @@ function App() {
     setAccountBalance();
     closeDeleteModalFunction();
   }
+
+  function addRecord(title, value, type) {
+    setCardsData(prevCardsData => {
+      const updatedCardsData = [...prevCardsData];
+      const selectedCard = updatedCardsData[selectedCardId - 1];
+      const updatedCardBalance = updatedCardsData[selectedCardId - 1].balance+value;
+      updatedCardsData[selectedCardId - 1].balance=updatedCardBalance;
+      setAccountBalance(updatedCardBalance);
+      if (selectedCard) {
+        const newId = selectedCard.records.length ? selectedCard.records[selectedCard.records.length - 1].id + 1 : 1;
+        const addedRecord = {
+          id: newId,
+          title: title,
+          value: value,
+          type: type,
+        };
+        selectedCard.records.push(addedRecord);
+      }
+      return updatedCardsData;
+    });
+    
+  }
+
   useEffect(() => {
     if (accountName === 'Select account') {
       setShowDelete(false);
@@ -128,6 +165,35 @@ function App() {
       setShowDelete(true);
     }
   }, [accountName]);
+  useEffect(() => {
+    setRecordData(prevRecordData => {
+      const newRecordData = cardsData[selectedCardId - 1]?.records || [];
+      return newRecordData;
+    });
+  }, [selectedCardId, cardsData]);
+
+  function removeRecord(val, id) {
+    setCardsData(prevCardsData => {
+      const updatedCardsData = [...prevCardsData];
+      const selectedCard = updatedCardsData[selectedCardId - 1];
+  
+      if (selectedCard) {
+       
+        const updatedCardBalance = selectedCard.balance - val;
+        selectedCard.balance = updatedCardBalance;
+        setAccountBalance(updatedCardBalance);
+  
+        selectedCard.records = selectedCard.records.filter(record => record.id !== id);
+        setRecordData([...selectedCard.records]); 
+  
+        return updatedCardsData;
+      }
+  
+      return updatedCardsData;
+    });
+  }
+
+
 
   return (
     <div className="app-div">
@@ -142,10 +208,18 @@ function App() {
         closeCreateModalFunction={closeCreateModalFunction}
         createNewCard={createNewCard}
       />
+      <RecordModal
+        recordModalStatus={recordModalStatus}
+        closeRecordModalFunction={closeRecordModalFunction}
+        accountName={accountName}
+        addRecord={addRecord}
+        recordSymbol={recordSymbol}
+  
+      />
       <div className='accounts-div'>
         <h2>Accounts</h2>
         {/* <h3 className='total-balance-text'>Total Balance: {`${totalBalance} ${currency}`}</h3> */}
-        <div className='accounts-list'> 
+        <div className='accounts-list'>
           {cardsData.map((card) => (
               <Card key={card.id} 
               cardKey={card.id}
@@ -165,7 +239,7 @@ function App() {
         <div className='accounts-details-top'>
           <h2>Account Details</h2>
           <p>{accountName}</p>
-          <p className={`${accountName==='Select account' ? 'hidden': ''}`}>{`${currency} ${accountBalance}`}</p>
+          <p className={`${accountName==='Select account' ? 'hidden': ''}`}>{`${recordSymbol} ${accountBalance}`}</p>
         </div>
         
         <div className='transactions-tab'>
@@ -179,11 +253,32 @@ function App() {
             totalBalanceEURO={totalBalanceEURO}
             totalBalanceUSD={totalBalanceUSD}
             totalBalanceYEN={totalBalanceYEN}/>
-          ) : ('Transactions Tab')}
+          ) : (
+            <div className='records-tab'>
+              {cardsData[selectedCardId-1].records.length===0 ? 
+              (
+                <p>{`No records in ${cardsData[selectedCardId-1].title}`}</p>
+              ) : (
+                <div className='records-list'>
+                  {recordData.map((record) => (
+                    <RecordComponent 
+                    key={record.id} 
+                    id={record.id} 
+                    title={record.title}
+                    value={record.value} 
+                    type={record.type} 
+                    removeRecord={removeRecord}
+                    />
+                  ))}
+                  {/* <p>{`${JSON.stringify(cardsData[selectedCardId-1].records)}`}</p> */}
+                </div>
+                
+              )}
+            </div>)}
         </div>
 
         <div className='account-details-buttons'>
-          <button className={`add-record-btn ${showDelete ? '' : 'hidden'}`}>Add Record</button>
+          <button className={`add-record-btn ${showDelete ? '' : 'hidden'}`} onClick={openRecordModal}>Add Record</button>
           <button className={`delete-btn ${showDelete ? '' : 'hidden'}`} onClick={openDeleteModalAction}> <FaTrash /><p className='delete-btn-text'>Delete Account</p></button>
         </div>
       </div>
