@@ -25,6 +25,14 @@ function closeRecordModal(){
 }
 function handleConfirmButton(){
     if(newRecordTitle && newRecordValue){
+        if(newRecordValue>999999999999){
+            alert('Value too big')
+            return;
+        }
+        if(newRecordTitle.length>100){
+            alert('Name too big')
+            return;
+        }
         if(newRecordType==='Expense'){
             props.addRecord(newRecordTitle,-newRecordValue,newRecordType);
         }else props.addRecord(newRecordTitle,newRecordValue,newRecordType);
@@ -42,7 +50,7 @@ function handleChangeRecordTitle(e){
     setNewRecordTitle(e.target.value)
 }
 function handleChangeRecordValue(e){
-    setNewRecordValue(parseInt(e.target.value))
+    setNewRecordValue(parseFloat(e.target.value))
 }
 function handleExpenseClick(){
     setNewRecordType('Expense')
@@ -55,7 +63,7 @@ function handleIncomeClick(){
   return (
     <div className={`record-modal-div ${ isOpen ? '' : 'hidden'}`}>
        <div className={`record-dialog ${ isOpen ? 'record-dialog-down' : 'record-dialog-up'}`}>
-            <p className='record-title'>Add new record to account "{props.accountName}" <span className='record-name'>{props.deleteName}</span></p>
+            <p className='record-modal-title'>Add new record to account "{props.accountName}" <span className='record-name'>{props.deleteName}</span></p>
             <div className='create-inputs-div'>
                 <label htmlFor="">Title</label>
                 <input type="text" onChange={handleChangeRecordTitle} value={newRecordTitle}/>

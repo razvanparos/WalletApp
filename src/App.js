@@ -145,11 +145,16 @@ function App() {
       setAccountBalance(updatedCardBalance);
       if (selectedCard) {
         const newId = selectedCard.records.length ? selectedCard.records[selectedCard.records.length - 1].id + 1 : 1;
+        let date = new Date();
+        const options = { day: '2-digit', month: 'short' };
         const addedRecord = {
           id: newId,
           title: title,
           value: value,
           type: type,
+          dateDay: date.toLocaleDateString('eu-Eu',options),
+          dateHours: date.getHours(),
+          dateMinutes: date.getMinutes()
         };
         selectedCard.records.push(addedRecord);
       }
@@ -218,8 +223,8 @@ function App() {
       />
       <div className='accounts-div'>
         <h2>Accounts</h2>
-        {/* <h3 className='total-balance-text'>Total Balance: {`${totalBalance} ${currency}`}</h3> */}
         <div className='accounts-list'>
+          <p className={`total-balance-text ${cardsData.length===0?'':'hidden'}`}>Please create new account</p>
           {cardsData.map((card) => (
               <Card key={card.id} 
               cardKey={card.id}
@@ -257,23 +262,28 @@ function App() {
             <div className='records-tab'>
               {cardsData[selectedCardId-1].records.length===0 ? 
               (
-                <p>{`No records in ${cardsData[selectedCardId-1].title}`}</p>
+                <p className='no-records'>{`No records in ${cardsData[selectedCardId-1].title}`}</p>
               ) : (
                 <div className='records-list'>
-                  {recordData.map((record) => (
+                  {[...recordData].reverse().map((record) => (
                     <RecordComponent 
                     key={record.id} 
                     id={record.id} 
                     title={record.title}
                     value={record.value} 
                     type={record.type} 
+                    day={record.dateDay}
+                    hours={record.dateHours}
+                    minutes={record.dateMinutes}
+                    recordSymbol={recordSymbol}
                     removeRecord={removeRecord}
                     />
                   ))}
-                  {/* <p>{`${JSON.stringify(cardsData[selectedCardId-1].records)}`}</p> */}
+                 
                 </div>
                 
               )}
+              
             </div>)}
         </div>
 

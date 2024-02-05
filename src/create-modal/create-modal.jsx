@@ -23,6 +23,10 @@ function CreateModal(props) {
     }
     function createNewCard(){
         if(newCardName && newCardBalance && newCardCurrency){
+            if(newCardBalance>999999999999){
+                alert('Value too big')
+                return;
+            }
             props.createNewCard(newCardName,newCardBalance,newCardCurrency)
             closeCreateModal();
         }else {

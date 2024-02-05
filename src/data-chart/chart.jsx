@@ -113,7 +113,7 @@ useEffect(()=>{
   return (
     <div className="chart-div">
     
-    <AreaChart
+    <AreaChart className="chart-desktop"
       width={1000}
       height={300}
       data={chartData}
@@ -121,6 +121,112 @@ useEffect(()=>{
         top: 10,
         right: 30,
         left: 0,
+        bottom: 0
+      }}
+    >
+      <CartesianGrid strokeDasharray="0 1" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip content={<CustomTooltip />}/>
+      <Area type="monotone" dataKey="pv" stroke="#8884d8" fill="#8884c1" />
+    </AreaChart>
+    
+    <AreaChart className="chart-desktop-small"
+      width={800}
+      height={300}
+      data={chartData}
+      margin={{
+        top: 10,
+        right: 30,
+        left: 0,
+        bottom: 0
+      }}
+    >
+      <CartesianGrid strokeDasharray="0 1" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip content={<CustomTooltip />}/>
+      <Area type="monotone" dataKey="pv" stroke="#8884d8" fill="#8884c1" />
+    </AreaChart>
+
+    <AreaChart className="chart-1024"
+      width={800}
+      height={300}
+      data={chartData}
+      margin={{
+        top: 10,
+        right: 30,
+        left: 0,
+        bottom: 0
+      }}
+    >
+      <CartesianGrid strokeDasharray="0 1" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip content={<CustomTooltip />}/>
+      <Area type="monotone" dataKey="pv" stroke="#8884d8" fill="#8884c1" />
+    </AreaChart>
+
+    <AreaChart className="chart-tablet"
+      width={740}
+      height={300}
+      data={chartData}
+      margin={{
+        top: 10,
+        right: 30,
+        left: 0,
+        bottom: 0
+      }}
+    >
+      <CartesianGrid strokeDasharray="0 1" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip content={<CustomTooltip />}/>
+      <Area type="monotone" dataKey="pv" stroke="#8884d8" fill="#8884c1" />
+    </AreaChart>
+    <AreaChart className="chart-tablet-small"
+      width={540}
+      height={300}
+      data={chartData}
+      margin={{
+        top: 10,
+        right: 10,
+        left: 0,
+        bottom: 50
+      }}
+    >
+      <CartesianGrid strokeDasharray="0 1" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip content={<CustomTooltip />}/>
+      <Area type="monotone" dataKey="pv" stroke="#8884d8" fill="#8884c1" />
+    </AreaChart>
+    <AreaChart className="chart-mobile-large"
+      width={400}
+      height={250}
+      data={chartData}
+      margin={{
+        top: 10,
+        right: 10,
+        left: 0,
+        bottom: 0
+      }}
+    >
+      <CartesianGrid strokeDasharray="0 1" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip content={<CustomTooltip />}/>
+      <Area type="monotone" dataKey="pv" stroke="#8884d8" fill="#8884c1" />
+    </AreaChart>
+    
+    <AreaChart className="chart-mobile-small"
+      width={300}
+      height={150}
+      data={chartData}
+      margin={{
+        top: 10,
+        right: 10,
+        left: -10,
         bottom: 0
       }}
     >

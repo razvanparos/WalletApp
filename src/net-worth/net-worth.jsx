@@ -87,7 +87,8 @@ function NetWorth(props) {
             </div>
             
             <div>
-                <p className='net-total'>{`TOTAL(${totalCurrency}) ${totalSymbol}${formattedTotalBalance}`}</p>
+                <p className='net-total'>{`TOTAL(${totalCurrency})`}</p>
+                <p className='net-total'>{`${totalSymbol}${formattedTotalBalance}`}</p>
             </div>
             <div>
                 <select name="total-currency" id="" onChange={handleChangeTotalCurrency}>

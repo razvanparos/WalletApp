@@ -61,3 +61,27 @@ select *{
     color: black;
     cursor: pointer;
 }
+@media (max-width:700px){
+    .currencies-list{
+        align-items: center;
+        flex-direction: column-reverse;
+        row-gap: 12px;
+        padding: 0px;
+    }
+    .accounts-details{
+        justify-content: start;
+        row-gap: 40px;
+    }
+    .currencies-individual{
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .flex{
+        width: 80%;
+    }
+    .net-worth-div{
+        row-gap: 40px;
+    }
+}

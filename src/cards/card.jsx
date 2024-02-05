@@ -28,7 +28,7 @@ function Card(props) {
 
   return (
     <div className="card-div" onClick={cardClick}>
-      <p className='card-name'>{props.name} {props.cardKey}</p>
+      <p className='card-name'>{props.name}</p>
       <div className='card-balance'>
         {`${cardSymbol}`}
         <p className='balance-p'>{formattedBalance}</p>
