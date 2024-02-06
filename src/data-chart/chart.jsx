@@ -8,14 +8,13 @@ function Chart(props) {
   const [chartData, setChartData] = useState([]);
   useEffect(()=>{
     if(localStorage.getItem('chartData')){
-    // console.log('data exists')
   }else {
-    // console.log('no data stored...initializing')
     setDefaultData();
   }
   },[])
   
   const options = { day: '2-digit', month: 'short' };
+  const locale = 'eu-Eu';
   let currentDate= new Date();
   let tomorrow = new Date();
   tomorrow.setDate(currentDate.getDate()+1);
@@ -35,14 +34,14 @@ function Chart(props) {
   let day1= new Date();
   day1.setDate(currentDate.getDate()-7);
   let defaultData=[
-    {name:day1.toLocaleString('eu-EU',options),pv:0},
-    {name:day2.toLocaleString('eu-EU',options),pv:0},
-    {name:day3.toLocaleString('eu-EU',options),pv:0},
-    {name:day4.toLocaleString('eu-EU',options),pv:0},
-    {name:day5.toLocaleString('eu-EU',options),pv:0},
-    {name:day6.toLocaleString('eu-EU',options),pv:0},
-    {name:day7.toLocaleString('eu-EU',options),pv:0},
-    {name:currentDate.toLocaleString('eu-EU',options),pv:0},]
+    {name:day1.toLocaleString(locale,options),pv:0},
+    {name:day2.toLocaleString(locale,options),pv:0},
+    {name:day3.toLocaleString(locale,options),pv:0},
+    {name:day4.toLocaleString(locale,options),pv:0},
+    {name:day5.toLocaleString(locale,options),pv:0},
+    {name:day6.toLocaleString(locale,options),pv:0},
+    {name:day7.toLocaleString(locale,options),pv:0},
+    {name:currentDate.toLocaleString(locale,options),pv:0},]
 
  function setDefaultData(){
   setChartData(defaultData);
