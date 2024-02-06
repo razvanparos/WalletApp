@@ -22,6 +22,7 @@ function closeRecordModal(){
     buttons.forEach(button => {
     button.style.transition = 'none'; 
     });
+    document.body.style.overflowY = 'scroll';
 }
 function handleConfirmButton(){
     if(newRecordTitle && newRecordValue){

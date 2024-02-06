@@ -85,16 +85,18 @@ function App() {
     setRecordSymbol(s)
   }
   function openDeleteModalAction(){
-    document.body.scrollTop = 0;  // needs fix
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({top: 0, behavior: 'smooth'})
+    document.body.style.overflow = 'hidden';
     setOpenDeleteModal(true);
   }
   function openCreateModal(){
-    window.scrollTo({top: 0, behavior: 'smooth'}) // needs fix
+    window.scrollTo({top: 0, behavior: 'smooth'})
+    document.body.style.overflow = 'hidden';
     setCreateModalStatus(true);
   }
   function openRecordModal(){
-    window.scrollTo({top: 0, behavior: 'smooth'}) // needs fix
+    window.scrollTo({top: 0, behavior: 'smooth'})
+    document.body.style.overflow = 'hidden';
     setRecordModalStatus(true);
   }
   function showTotalWorth(){

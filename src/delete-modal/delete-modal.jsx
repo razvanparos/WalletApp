@@ -11,6 +11,7 @@ function DeleteModal(props) {
     
 function closeDeleteModal(){
         props.closeDeleteModalFunction()
+        document.body.style.overflowY = 'scroll';
         const buttonsDiv = document.querySelector('.delete-buttons-div');
         const buttons = buttonsDiv.querySelectorAll('button');
         buttons.forEach(button => {

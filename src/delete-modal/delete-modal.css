@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    min-height:100vh;
+    height:100%;
     width: 100vw;
     backdrop-filter: blur(10px);
 }
@@ -79,4 +79,14 @@
 }
 .check-logo{
     scale: 2.2;
+}
+@media (max-width:1400px){
+    .delete-modal-div{
+        height:1300px;
+        width: 100vw;
+    }
+    .delete-dialog-down{
+        position: absolute;
+        top: 15%;
+    }
 }

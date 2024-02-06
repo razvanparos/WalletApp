@@ -19,6 +19,7 @@ function CreateModal(props) {
         buttons.forEach(button => {
         button.style.transition = 'none'; 
         });
+        document.body.style.overflowY = 'scroll';
         
     }
     function createNewCard(){

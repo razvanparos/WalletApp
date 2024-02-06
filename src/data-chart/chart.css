@@ -1,123 +1,31 @@
-.chart-1024{
-    display: none;
-}
-.chart-desktop-small{
-    display: none;
-}
-.chart-tablet{
-    display: none;
-}
-.chart-tablet-small{
-    display: none;
-}
-.chart-mobile-large{
-    display: none;
-}
-.chart-mobile-small{
-    display: none;
-}
+
 @media (min-width: 1400px) and (max-width: 1625px){
-    .chart-1024{
-        display: none;
-    }
-    .chart-desktop{
-        display: none;
-    }
-    .chart-desktop-small{
-        display: block;
-    }
-    .chart-tablet{
-        display: none;
-    }
+ .chart-div{
+    scale: 0.82;
+ }
 }
 @media (min-width: 1024px) and (max-width: 1400px){
-    .chart-1024{
-        display: none;
-    }
-    .chart-desktop{
-        display: block;
-    }
-    .chart-desktop-small{
-        display: none;
-    }
-    .chart-desktop-small{
-        display: none;
-    }
+    .chart-div{
+        scale: 1;
+     }
 }
 @media (min-width: 800px) and (max-width:1024px) {
-    .chart-1024{
-        display: none;
-    }
-    .chart-desktop{
-        display: none;
-    }
-    .chart-tablet{
-        display: block;
-    }
-    .chart-desktop-small{
-        display: none;
-    }
+    .chart-div{
+        scale: 0.75;
+     }
 }
 @media (min-width: 600px) and (max-width:800px) {
-    .chart-1024{
-        display: none;
-    }
-    .chart-desktop{
-        display: none;
-    }
-    .chart-tablet{
-        display: none;
-    }
-    .chart-tablet-small{
-        display: block;
-    }
-    .chart-desktop-small{
-        display: none;
-    }
+    .chart-div{
+        scale: 0.58;
+     }
 }
 @media (min-width: 400px) and (max-width:600px) {
-    .chart-1024{
-        display: none;
-    }
-    .chart-desktop{
-        display: none;
-    }
-    .chart-tablet{
-        display: none;
-    }
-    .chart-tablet-small{
-        display: none;
-    }
-    .chart-desktop-small{
-        display: none;
-    }
-    .chart-mobile-large{
-        display: block;
-    }
+    .chart-div{
+        scale: 0.37;
+     }
 }
 @media (min-width: 200px) and (max-width:400px) {
-    .chart-1024{
-        display: none;
-    }
-    .chart-desktop{
-        display: block;
-    }
     .chart-div{
         scale: 0.3;
-    }
-    .chart-tablet{
-        display: none;
-    }
-    .chart-tablet-small{
-        display: none;
-    }
-    .chart-desktop-small{
-        display: none;
-    }
-    .chart-mobile-large{
-        display: none;
-    }
-    .chart-mobile-small{
-        display: none;
-    }
+     }
 }

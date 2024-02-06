@@ -18,6 +18,8 @@
 }
 html{
   width: 100vw;
+  height: 100%;
+  /* overflow-x: hidden; */
 
 }
 body{
@@ -185,7 +187,7 @@ body{
 
 @media (max-width:1400px) {
   .app-div{
-    padding: 8px;
+    padding: 24px 8px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -224,6 +226,9 @@ body{
   }
   .accounts-div{
     padding: 20px 8px;
+  }
+  html{
+    height: fit-content;
   }
   
 

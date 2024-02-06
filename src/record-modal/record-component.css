@@ -85,3 +85,34 @@
     overflow: hidden;
     
 }
+
+@media (max-width:850px){
+    .record-val{
+        font-size: 12px;
+    }
+    .record-date{
+        font-size: 8px;
+    }
+    .record-remove-btn{
+        scale: 0.8;
+    }
+    .records-list{
+        padding: 4px 0px;
+    }
+    .transactions-tab{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .record-component-div{
+        flex-direction: column;
+        justify-content: start;
+    }
+    .record-title{
+        max-width: 180px;
+    }
+    .record-component-content{
+        width: 100%;
+        justify-content: start;
+    }
+}

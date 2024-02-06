@@ -119,3 +119,13 @@ select *{
     color: black !important;
     padding: 12px 20px !important;
 }
+@media (max-width:1400px){
+    .record-modal-div{
+        height:1300px;
+        width: 100vw;
+    }
+    .record-dialog-down{
+        position: absolute;
+        top: 8%;
+    }
+}
